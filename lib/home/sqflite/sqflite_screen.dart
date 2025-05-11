@@ -321,6 +321,9 @@ class _SqfliteScreenState extends State<SqfliteScreen> {
                                                     .clear();
                                                 addressEditingController
                                                     .clear();
+                                                setState(() {
+                                                  isDataExistAlready = false;
+                                                });
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(SnackBar(
                                                         content: Text(
