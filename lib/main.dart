@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_storage_solutions/home/hive/hive_screen.dart';
 import 'package:local_storage_solutions/home/home_screen.dart';
 import 'package:local_storage_solutions/home/route_manager.dart';
 import 'package:local_storage_solutions/home/sqflite/sqflite_screen.dart';
@@ -56,13 +57,14 @@ class MyApp extends StatelessWidget {
                 GoogleFonts.outfit(fontSize: 16, fontWeight: FontWeight.w500),
             backgroundColor: Colors.blue),
         textTheme: GoogleFonts.outfitTextTheme(TextTheme()).apply(
-          displayColor: Colors.white,
-          bodyColor: Colors.white,
-        ),
+            // displayColor: Colors.white,
+            // bodyColor: Colors.white,
+            ),
       ),
       home: const HomeScreen(),
       routes: {
         Routes.sqfLite: (_) => SqfliteScreen(),
+        Routes.hive: (_) => HiveScreen(),
       },
     );
   }

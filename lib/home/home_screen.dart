@@ -10,7 +10,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<List> data = [
-    ['Sqflite', Routes.sqfLite]
+    ['Sqflite', Routes.sqfLite],
+    ['Hive', Routes.hive],
   ];
   @override
   Widget build(BuildContext context) {
@@ -27,29 +28,33 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: List.generate(data.length, (index) {
             final List solution = data[index];
-            return ListTile(
-              leading: CircleAvatar(
-                radius: 10,
-                backgroundColor: Colors.white,
-                child: CircleAvatar(
-                  radius: 6,
-                  backgroundColor: Colors.blue,
+            return Padding(
+              padding: EdgeInsets.only(bottom: 12),
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 10,
+                  backgroundColor: Colors.white,
+                  child: CircleAvatar(
+                    radius: 6,
+                    backgroundColor: Colors.blue,
+                  ),
                 ),
+                minLeadingWidth: 10,
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 15,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                tileColor: Colors.blueGrey[100],
+                onTap: () {
+                  Navigator.of(context).pushNamed(solution[1]);
+                },
+                title: Text(solution[0],
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
               ),
-              minLeadingWidth: 10,
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                size: 15,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
-              tileColor: Colors.blueGrey[100],
-              onTap: () {
-                Navigator.of(context).pushNamed(solution[1]);
-              },
-              title: Text(solution[0],
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
             );
           }),
         ),
